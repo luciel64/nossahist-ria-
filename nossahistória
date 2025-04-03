@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Uma surpresa especial para você! Veja nossa história representada nesta imagem.">
+ <meta name= "palavras-chave" content="nossa história, amor, imagem especial, surpresa">
+ <meta name="autor" content="Seu Nome">
+ <title>Nossa História??️</título>
+ <estilo>
+ corpo {
+ alinhamento de texto: centro;
+ família de fontes: Arial, sem serifa;
+ margem: 0;
+ preenchimento: 20px;
+ cor de fundo: #f4f4f4;
+        }
+ h1 {
+ cor: #333;
+        }
+ img {
+ larga máxima: 100%;
+ alta: automático;
+ raio de borda: 10px;
+ caixa-sombra: 0px 0px 10px rgba(0,0,0,0,5);
+        }
+ </style>
+</head>
+<body>
+ <h1>Nossa História??️</h1>
+ <img src="https://i.postimg.cc/7LCjNntG/1525617788756.jpg" 
+ alt="Imagem representando nossa história juntas" 
+ title="Nossa História - Uma surpresa especial">
+</body>
+</html>
