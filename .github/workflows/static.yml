@@ -1,0 +1,43 @@
+# Fluxo de trabalho simples para implantar conteúdo estático nas páginas do GitHub
+nome: Implante conteúdo estático nas páginas
+
+em:
+  # Executa empurra visando uma ramificação padrão
+ empurrar:
+ ramos: ["principal"]
+
+  # Permite que você execute esse fluxo de trabalho manualmente a parte da guia Ações
+ fluxo de trabalho_despacho:
+
+# Definir permissões do GITHUB_TOKEN para permitir uma implantação nas páginas do GitHub
+permissões:
+ conteúdo: ler
+ páginas: escrever
+ id-token: escrever
+
+# Permita apenas uma implantação simultânea, ignorando como execuções enfileiradas entre uma execução em andamento e uma eterna enfileirada.
+# No entanto, NÃO cancele como execuções em andamento, pois quermos permitir que essas implantações de produção sejam concluídas.
+simultaneidade:
+ grupo: "páginas"
+ cancelar em andamento: falso
+
+empregos:
+  # Trabalho de implantação única, pois estamos apenas implantando
+ implantar:
+ ambiente:
+ nome: paginas github
+ url: ${{ etapas.implantação.outputs.page_url }}
+ corre: ubuntu-último
+ passos:
+      - nome: Check-out
+ usos: ações/checkout@v4
+      - nome: Configurar páginas
+ usos: ações/configurar páginas@v5
+      - nome: Carregar Artefato
+ usos: ações/upload-pages-artifact@v3
+ com:
+          # Carregar repositório inteiro
+ caminho: '.'
+      - nome: Implante nas páginas do GitHub
+ ue: implantação
+ usos: ações/páginas implantar@v4
